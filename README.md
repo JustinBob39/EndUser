@@ -24,6 +24,7 @@
 * guide.cpp，paho.mqtt.cpp官方提供的样例代码，版本为1.5.2(安装可能会出现CXX11_ABI兼容性问题)
 * main.cpp，启动入口
 * test，测试工具，测试CRC24算法、Deserializer类的正确性
+* 依赖tinyxml2，版本11.0.0
 
 ## 帧结构
 
@@ -39,3 +40,5 @@
 
 
 数据解析结果正确，端到端延迟大概在200ms，满足要求
+
+不带内存管理操作系统的单片机，使用嵌入式版本，https://github.com/eclipse-paho/paho.mqtt.embedded-c
