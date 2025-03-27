@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attributes>
+    <server_uri>mqtt://192.168.1.101:1883</server_uri>
+    <client_id>car_1</client_id>
+    <topic>difference/2</topic>
+    <connect-timeout>10</connect-timeout>
+    <keep_alive_interval>60</keep_alive_interval>
+    <clean_session>true</clean_session>
+    <qos>1</qos>
+</attributes>
