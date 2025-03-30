@@ -20,7 +20,7 @@
 * CRC24Q实现CRC24算法，主要用于收到数据帧后检验完整性
 * Config类，读取XML配置文件，设置client的重要连接属性
 * Deserializer类，反序列化逻辑的具体实现
-* config.xml，配置文件，与可执行文件放到相同目录，根据具体场景调优，建议启用clean session
+* config.xml，配置文件，与可执行文件放到相同目录，根据具体场景调优，建议启用clean session、使用安全的mqtts协议(8883端口)
 * guide.cpp，paho.mqtt.cpp官方提供的样例代码，版本为1.5.2(安装可能会出现CXX11_ABI兼容性问题)
 * main.cpp，启动入口
 * test，测试工具，测试CRC24算法、Deserializer类的正确性
