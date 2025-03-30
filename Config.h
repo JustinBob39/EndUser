@@ -11,12 +11,14 @@ using tinyxml2::XMLText;
 
 class Config {
     std::string server_uri = "mqtt://localhost:1883";
-    std::string client_id = "test_client";
-    std::string topic = "test_topic";
+    std::string client_id = "client_id";
+    std::string topic = "topic";
     int connect_timeout = 10;
     int keep_alive_interval = 60;
-    bool clean_session = false;
+    bool clean_session = true;
     int qos = 1;
+    std::string user_name = "user_name";
+    std::string password = "password";
 
     void parseFile() {
         XMLDocument doc;
@@ -34,6 +36,8 @@ class Config {
                     attributes_element->FirstChildElement("keep_alive_interval");
             XMLElement *clean_session_element = attributes_element->FirstChildElement("clean_session");
             XMLElement *qos_element = attributes_element->FirstChildElement("qos");
+            XMLElement *user_name_element = attributes_element->FirstChildElement("user_name");
+            XMLElement *password_element = attributes_element->FirstChildElement("password");
             if (server_uri_element) {
                 server_uri = server_uri_element->FirstChild()->ToText()->Value();
             }
@@ -59,6 +63,12 @@ class Config {
             if (qos_element) {
                 const auto val_str = std::string(qos_element->FirstChild()->ToText()->Value());
                 qos = std::stoi(val_str);
+            }
+            if (user_name_element) {
+                user_name = user_name_element->FirstChild()->ToText()->Value();
+            }
+            if (password_element) {
+                password = password_element->FirstChild()->ToText()->Value();
             }
         }
     }
@@ -94,6 +104,14 @@ public:
 
     [[nodiscard]] int get_qos() const {
         return qos;
+    }
+
+    [[nodiscard]] std::string get_user_name() const {
+        return user_name;
+    }
+
+    [[nodiscard]] std::string get_password() const {
+        return password;
     }
 };
 

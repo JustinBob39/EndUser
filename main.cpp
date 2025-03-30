@@ -26,6 +26,8 @@ int main(const int argc, char *argv[]) {
             .keep_alive_interval(std::chrono::seconds(config.get_keep_alive_interval()))
             .clean_session(config.get_clean_session())
             .automatic_reconnect()
+            .password(config.get_user_name())
+            .user_name(config.get_password())
             .finalize();
 
     client.set_connected_handler([](const std::string &) {
